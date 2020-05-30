@@ -4,6 +4,7 @@
 package bowling_game_kata
 
 import kotlin.test.Test
+import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
 class BowlingGameTest {
@@ -13,5 +14,6 @@ class BowlingGameTest {
         for (i in 1..20) {
             game.roll(0)
         }
+        assertEquals(0, game.score())
     }
 }

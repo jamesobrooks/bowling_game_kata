@@ -10,5 +10,8 @@ class BowlingGameTest {
     @Test
     fun testGutterGame() {
         val game = Game()
+        for (i in 1..20) {
+            game.roll(0)
+        }
     }
 }

@@ -1,7 +1,11 @@
 package bowling_game_kata
 
 class Game {
-    fun roll(pins: Int) {}
+    var score = 0
 
-    fun score(): Int { return 0 }
+    fun roll(pins: Int) {
+        score += pins
+    }
+
+    fun score(): Int { return score }
 }

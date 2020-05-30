@@ -3,5 +3,9 @@
  */
 package bowling_game_kata
 
-fun main(args: Array<String>) {
+import kotlin.test.Test
+import kotlin.test.assertNotNull
+
+class BowlingGameTest {
+
 }

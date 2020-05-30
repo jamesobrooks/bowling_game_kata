@@ -7,5 +7,8 @@ import kotlin.test.Test
 import kotlin.test.assertNotNull
 
 class BowlingGameTest {
-
+    @Test
+    fun testGutterGame() {
+        val game = Game()
+    }
 }

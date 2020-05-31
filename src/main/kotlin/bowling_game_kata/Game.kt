@@ -13,15 +13,15 @@ class Game {
         for (frame in 0..9) {
             when {
                 isStrike(frameIndex) -> {
-                    score += 10 + rolls[frameIndex+1] + rolls[frameIndex+2]
+                    score += 10 + strikeBonus(frameIndex)
                     frameIndex++
                 }
                 isSpare(frameIndex) -> {
-                    score += 10 + rolls[frameIndex+2]
+                    score += 10 + spareBonus(frameIndex)
                     frameIndex += 2
                 }
                 else -> {
-                    score += rolls[frameIndex] + rolls[frameIndex+1]
+                    score += framePins(frameIndex)
                     frameIndex += 2
                 }
             }
@@ -31,5 +31,11 @@ class Game {
 
     private fun isStrike(frameIndex: Int) = rolls[frameIndex] == 10
 
-    private fun isSpare(frameIndex: Int) = rolls[frameIndex] + rolls[frameIndex + 1] == 10
+    private fun isSpare(frameIndex: Int) = framePins(frameIndex) == 10
+
+    private fun framePins(frameIndex: Int) = rolls[frameIndex] + rolls[frameIndex + 1]
+
+    private fun strikeBonus(frameIndex: Int) = rolls[frameIndex+1] + rolls[frameIndex+2]
+
+    private fun spareBonus(frameIndex: Int) = rolls[frameIndex+2]
 }

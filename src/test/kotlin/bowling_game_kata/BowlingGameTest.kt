@@ -34,11 +34,15 @@ class BowlingGameTest {
     @Test
     fun testOneStrike() {
         val game = Game()
-        game.roll(10) // strike
+        rollStrike(game)
         game.roll(3)
         game.roll(4)
         rollMany(game, 16, 0)
         assertEquals(24, game.score())
+    }
+
+    private fun rollStrike(game: Game) {
+        game.roll(10)
     }
 
     private fun rollSpare(game: Game) {
@@ -46,7 +50,7 @@ class BowlingGameTest {
         game.roll(5)
     }
 
-    fun rollMany(game: Game, rolls: Int, pins: Int) {
+    private fun rollMany(game: Game, rolls: Int, pins: Int) {
         for (i in 1..rolls) {
             game.roll(pins)
         }

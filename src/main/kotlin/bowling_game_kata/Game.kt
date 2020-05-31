@@ -9,8 +9,10 @@ class Game {
 
     fun score(): Int {
         var score = 0
-        for (roll in rolls) {
-            score += roll
+        var i = 0
+        for (frame in 0..9) {
+            score += rolls[i] + rolls[i+1]
+            i += 2
         }
         return score
     }

@@ -25,11 +25,15 @@ class BowlingGameTest {
     @Test
     fun testOneSpare() {
         val game = Game()
-        game.roll(5)
-        game.roll(5) // makes the spare
-        game.roll(3) // adds bonus
+        rollSpare(game)
+        game.roll(3)
         rollMany(game, 17, 0)
         assertEquals(16, game.score())
+    }
+
+    private fun rollSpare(game: Game) {
+        game.roll(5)
+        game.roll(5)
     }
 
     fun rollMany(game: Game, rolls: Int, pins: Int) {

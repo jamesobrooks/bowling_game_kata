@@ -11,18 +11,20 @@ class BowlingGameTest {
     @Test
     fun testGutterGame() {
         val game = Game()
-        for (i in 1..20) {
-            game.roll(0)
-        }
+        rollMany(game, 20, 0)
         assertEquals(0, game.score())
     }
 
     @Test
     fun testAllOnes() {
         val game = Game()
-        for (i in 1..20) {
-            game.roll(1)
-        }
+        rollMany(game, 20, 1)
         assertEquals(20, game.score())
+    }
+
+    fun rollMany(game: Game, rolls: Int, pins: Int) {
+        for (i in 1..rolls) {
+            game.roll(pins)
+        }
     }
 }

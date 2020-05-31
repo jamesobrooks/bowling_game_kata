@@ -22,6 +22,16 @@ class BowlingGameTest {
         assertEquals(20, game.score())
     }
 
+    @Test
+    fun testOneSpare() {
+        val game = Game()
+        game.roll(5)
+        game.roll(5) // makes the spare
+        game.roll(3) // adds bonus
+        rollMany(game, 17, 0)
+        assertEquals(16, game.score())
+    }
+
     fun rollMany(game: Game, rolls: Int, pins: Int) {
         for (i in 1..rolls) {
             game.roll(pins)

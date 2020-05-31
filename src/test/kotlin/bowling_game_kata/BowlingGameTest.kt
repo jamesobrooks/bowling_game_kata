@@ -5,7 +5,6 @@ package bowling_game_kata
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertNotNull
 
 class BowlingGameTest {
     @Test
@@ -34,15 +33,24 @@ class BowlingGameTest {
     @Test
     fun testOneStrike() {
         val game = Game()
-        rollStrike(game)
+        rollStrikes(game, 1)
         game.roll(3)
         game.roll(4)
         rollMany(game, 16, 0)
         assertEquals(24, game.score())
     }
 
-    private fun rollStrike(game: Game) {
-        game.roll(10)
+    @Test
+    fun testPerfectGame() {
+        val game = Game()
+        rollStrikes(game, 12)
+        assertEquals(300, game.score())
+    }
+
+    private fun rollStrikes(game: Game, num: Int) {
+        for (i in 1..num) {
+            game.roll(10)
+        }
     }
 
     private fun rollSpare(game: Game) {

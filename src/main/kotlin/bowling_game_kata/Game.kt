@@ -1,11 +1,17 @@
 package bowling_game_kata
 
 class Game {
-    var score = 0
+    val rolls = mutableListOf<Int>()
 
     fun roll(pins: Int) {
-        score += pins
+        rolls.add(pins)
     }
 
-    fun score(): Int { return score }
+    fun score(): Int {
+        var score = 0
+        for (roll in rolls) {
+            score += roll
+        }
+        return score
+    }
 }
